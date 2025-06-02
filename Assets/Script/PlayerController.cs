@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public GameObject prefabBullet;
     public Transform containerBullet;
     public Transform pontoDeDisparo;
-    private float forcaDisparo = 20f;
+    private float forcaDisparo = 10f;
 
     public int vida = 100;
     public float velocidade = 10f;
