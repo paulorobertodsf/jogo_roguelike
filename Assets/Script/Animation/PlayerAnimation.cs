@@ -3,9 +3,7 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-
     [SerializeField] private Rigidbody2D rigidBody;
-
     [SerializeField] private SpriteRenderer sprite;
 
 

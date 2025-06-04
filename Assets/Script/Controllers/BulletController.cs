@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-
-    public float tempoDeVida = 2f;
-    public int dano = 5;
+    public float lifeTime;
+    public int damage;
 
     void Start()
     {
-        Destroy(gameObject, tempoDeVida);
+        Destroy(gameObject, lifeTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
+
         if (!collision.gameObject.CompareTag("Enemy")) return;
         EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
 
-        enemy.vida -= dano;
+        enemy.health -= damage;
     }
 }
