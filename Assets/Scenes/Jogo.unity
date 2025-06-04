@@ -4912,8 +4912,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8666532130471539886, guid: 2527a24c833be5744a274b108ee5fd45, type: 3}
-  minDistance: 5
-  maxDistance: 10
+  minDistance: 3
+  maxDistance: 5
   spawnInterval: 5
 --- !u!4 &1269570326
 Transform:
