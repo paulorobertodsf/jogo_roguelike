@@ -23,29 +23,34 @@ public class PlayerAnimation : MonoBehaviour
             this.animator.SetBool("run", true);
             this.animator.SetBool("right", true);
             this.animator.SetBool("left", false);
+            this.animator.SetBool("up", false);
             sprite.flipX = false;
         }else if(velocidadeX < 0)
         {
             this.animator.SetBool("run", true);
             this.animator.SetBool("right", false);
             this.animator.SetBool("left", true);
+            this.animator.SetBool("up", false);
             sprite.flipX = true;
         }else if (velocidadeY < 0  && velocidadeX == 0)
         {
             this.animator.SetBool("run", true);
             this.animator.SetBool("right", false);
             this.animator.SetBool("left", false);
+            this.animator.SetBool("up", false);
         }else if (velocidadeY > 0 && velocidadeX == 0)
         {
             this.animator.SetBool("run", true);
             this.animator.SetBool("right", false);
             this.animator.SetBool("left", false);
+            this.animator.SetBool("up", true);
         }
         else
         {
             this.animator.SetBool("run", false);
             this.animator.SetBool("right", false);
-            this.animator.SetBool("left", false);   
+            this.animator.SetBool("left", false);  
+            this.animator.SetBool("up", false);
         }
     }
 
