@@ -7,7 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private SpriteRenderer sprite;
 
 
-    void start()
+    void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
     }
