@@ -168,6 +168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 5
   damage: 5
+  speed: 0
+  direction: {x: 0, y: 0}
 --- !u!95 &1388520650874586519
 Animator:
   serializedVersion: 7

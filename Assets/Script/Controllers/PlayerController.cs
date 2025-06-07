@@ -59,14 +59,26 @@ public class PlayerController : MonoBehaviour
         if (Time.time < fireInterval) return;
         GameObject bullet = Instantiate(bulletPrefab, transformFirePoint.position, Quaternion.identity, transformBulletContainer);
         Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        mousePos.z = 0f;
+        Vector2 direction = (mousePos - transformFirePoint.position).normalized;
 
         if (rbBullet != null)
         {
+            /*
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             Vector2 direction = (mousePos - transformFirePoint.position).normalized;
-            rbBullet.linearVelocity = direction.normalized * fireForce;
+            rbBullet.linearVelocity = direction.normalized * fireForce;*/
+            rbBullet.linearVelocity = direction * fireForce;
         }
 
+        BulletController bulletController = bullet.GetComponent<BulletController>();
+        if (bulletController != null)
+        {
+            bulletController.direction = direction;
+            bulletController.speed = fireForce;
+        }
+        
         Collider2D colliderPlayer = GetComponent<Collider2D>();
         Collider2D colliderBullet = bullet.GetComponent<Collider2D>();
 
