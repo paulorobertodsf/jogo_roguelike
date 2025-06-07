@@ -10,10 +10,11 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform transformBulletContainer;
     public Transform transformFirePoint;
-    [SerializeField] private HealthBarController healthBar;
+    private HealthBarController healthBar;
 
-    [SerializeField] public int maxHealth;
-    [SerializeField] private int currentHealth;
+    public int maxHealth;
+    private int currentHealth;
+
     public float speed;
 
     public float fireCooldown;
@@ -31,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        
+
         currentHealth = maxHealth;
         healthBar.UpdateHealthBar(maxHealth, currentHealth);
     }

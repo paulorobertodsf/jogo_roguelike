@@ -5434,6 +5434,7 @@ MonoBehaviour:
   transformFirePoint: {fileID: 193396978}
   healthBar: {fileID: 0}
   maxHealth: 100
+  currentHealth: 100
   speed: 5
   fireCooldown: 0.5
 --- !u!114 &1306810030
