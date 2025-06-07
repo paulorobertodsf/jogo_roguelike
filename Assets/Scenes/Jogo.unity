@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 619394802}
   - component: {fileID: 619394801}
   m_Layer: 0
-  m_Name: Global Light 2D
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -637,7 +637,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.6079566, g: 0.61283785, b: 0.6226415, a: 1}
-  m_Intensity: 0.8
+  m_Intensity: 2
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -1262,7 +1262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142b111c13aa38e4fb7946956044105a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2003251690}
+  enemyPrefab: {fileID: 8666532130471539886, guid: 2527a24c833be5744a274b108ee5fd45, type: 3}
   minDistance: 3
   maxDistance: 5
   spawnInterval: 5
@@ -26890,7 +26890,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003251690}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -26963,7 +26963,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003251690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a549e1c6b3768b64a81f2ed1b1a73c11, type: 3}
   m_Name: 
