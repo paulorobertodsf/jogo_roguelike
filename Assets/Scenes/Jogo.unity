@@ -191,8 +191,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -61}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: 0, y: -58}
+  m_SizeDelta: {x: 100, y: 35.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &119793050
 MonoBehaviour:
@@ -5193,7 +5193,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.2125, y: -10.8189, z: 0}
-  m_LocalScale: {x: 0.405, y: 0.4779, z: 1}
+  m_LocalScale: {x: 16, y: 16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5432,9 +5432,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7480979065465791328, guid: e854d9f1f79d7094b960061097909a0a, type: 3}
   transformBulletContainer: {fileID: 973758731}
   transformFirePoint: {fileID: 193396978}
-  healthBar: {fileID: 0}
   maxHealth: 100
-  currentHealth: 100
   speed: 5
   fireCooldown: 0.5
 --- !u!114 &1306810030
