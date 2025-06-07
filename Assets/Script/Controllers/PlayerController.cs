@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -11,8 +10,10 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform transformBulletContainer;
     public Transform transformFirePoint;
+    [SerializeField] private HealthBarController healthBar;
 
-    public int health;
+    [SerializeField] public int maxHealth;
+    [SerializeField] private int currentHealth;
     public float speed;
 
     public float fireCooldown;
@@ -22,20 +23,31 @@ public class PlayerController : MonoBehaviour
     private float damageCooldown = 0.1f;
     private float nextDamageTime = 0f;
 
-    void Start()
+    private void Awake()
     {
         rigidbodyPlayer = GetComponent<Rigidbody2D>();
+        healthBar = GetComponentInChildren<HealthBarController>();
+    }
+
+    private void Start()
+    {
+        
+        currentHealth = maxHealth;
+        healthBar.UpdateHealthBar(maxHealth, currentHealth);
     }
 
     private void FixedUpdate()
     {
         rigidbodyPlayer.linearVelocity = movement * speed;
-        if (health <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnMove(InputValue inputValue)
     {
         movement = inputValue.Get<Vector2>();
+    }
+    private void OnFire()
+    {
+        FireBullet();
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -43,15 +55,17 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && Time.time >= nextDamageTime)
         {
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
-            health -= enemyController.damage;
+            TakeDamage(enemyController.damage);
 
             nextDamageTime = Time.time + damageCooldown;
         }
     }
 
-    private void OnFire()
+    private void TakeDamage(int damage)
     {
-        FireBullet();
+        currentHealth -= damage;
+        if (currentHealth <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        healthBar.UpdateHealthBar(maxHealth, currentHealth);
     }
 
     private void FireBullet()
