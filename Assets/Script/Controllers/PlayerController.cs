@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private HealthBarController healthBar;
 
     public int maxHealth;
-    private int currentHealth;
+    public int currentHealth;
 
     public float speed;
 
