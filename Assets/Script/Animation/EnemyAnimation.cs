@@ -7,7 +7,7 @@ public class EnemyAnimator : MonoBehaviour
     [SerializeField] private SpriteRenderer sprite;
 
 
-    void start()
+    void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
     }
