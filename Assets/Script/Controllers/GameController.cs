@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 {
     public static string pathData = "Assets/Data";
     public static string pathPrefab = "Prefab";
+    private static int limitCards = 3;
     public static void PauseGame()
     {
         Time.timeScale = 0f;
@@ -25,9 +26,11 @@ public class GameController : MonoBehaviour
 
         float spacing = 250f;
         float currentPosition = -250f;
+        int currentCard = 1;
 
         foreach (CardModel cardModel in cards)
         {
+            if (currentCard > limitCards) break;
             GameObject cardPrefab = Resources.Load<GameObject>(pathPrefab + "/MenuUpgrade/Card");
 
             Vector3 basePostion = menuUpgradeInstance.transform.position;
@@ -36,8 +39,8 @@ public class GameController : MonoBehaviour
 
             GameObject cardInstance = Instantiate(cardPrefab, cardPosition, Quaternion.identity, menuUpgradeInstance.transform);
             InitializeCard(cardInstance, cardModel);
+            currentCard++;
         }
-        
     }
 
     public static void DestroyMenuUpgrade()
