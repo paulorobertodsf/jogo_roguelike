@@ -637,7 +637,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.6079566, g: 0.61283785, b: 0.6226415, a: 1}
-  m_Intensity: 2
+  m_Intensity: 0.8
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -1394,6 +1394,7 @@ MonoBehaviour:
   transformBulletContainer: {fileID: 973758731}
   transformFirePoint: {fileID: 193396978}
   maxHealth: 100
+  currentHealth: 0
   speed: 5
   fireCooldown: 0.5
 --- !u!114 &1306810030
