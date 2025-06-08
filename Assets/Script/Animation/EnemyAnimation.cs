@@ -6,7 +6,6 @@ public class EnemyAnimator : MonoBehaviour
     [SerializeField] private Rigidbody2D rigidBody;
     [SerializeField] private SpriteRenderer sprite;
 
-
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();

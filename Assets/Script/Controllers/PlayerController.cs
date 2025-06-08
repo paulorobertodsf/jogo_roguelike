@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
         PlayerView playerView = playerObject.GetComponent<PlayerView>();
 
         playerView.player.currentHealth -= damage;
-        if (playerView.player.currentHealth <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (playerView.player.currentHealth <= 0) Die();
         HealthBarController.UpdateHealthBar(playerView.player.maxHealth, playerView.player.currentHealth);
     }
     public static void FireBullet()
@@ -56,5 +56,11 @@ public class PlayerController : MonoBehaviour
         Physics2D.IgnoreCollision(colliderBullet, colliderPlayer);
 
         fireInterval = Time.time + fireCooldown;
+    }
+
+    public static void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameController.ResumeGame();
     }
 }

@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
     public static string pathData = "Assets/Data";
     public static string pathPrefab = "Prefab";
+
     public static void PauseGame()
     {
         Time.timeScale = 0f;

@@ -6,11 +6,11 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private Rigidbody2D rigidBody;
     [SerializeField] private SpriteRenderer sprite;
 
-
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
     }
+
     void Update()
     {
         float velocidadeX = this.rigidBody.linearVelocity.x;

@@ -6,14 +6,11 @@ public class PlayerView : MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D rigidbodyPlayer;
 
-    private HealthBarView healthBar;
-
     [SerializeField] public PlayerModel player;
 
     private void Awake()
     {
         rigidbodyPlayer = GetComponent<Rigidbody2D>();
-        healthBar = GetComponentInChildren<HealthBarView>();
     }
 
     private void Start()
