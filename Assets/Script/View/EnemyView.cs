@@ -1,13 +1,17 @@
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyView : MonoBehaviour
 {
     private Rigidbody2D rigidbodyEnemy;
-    public Transform transformTarget;
+    private Transform transformTarget;
 
-    public float speed;
-    public int damage;
-    public int health;
+    [HideInInspector]
+    public EnemyModel enemy;
+
+    public void Initialize(EnemyModel enemyModel)
+    {
+        enemy = enemyModel;
+    }
 
     void Start()
     {
@@ -19,9 +23,9 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 direction = (transformTarget.position - transform.position).normalized;
-        rigidbodyEnemy.linearVelocity = direction * speed;
+        rigidbodyEnemy.linearVelocity = direction * enemy.speed;
 
-        if (health <= 0)
+        if (enemy.health <= 0)
         {
             Destroy(gameObject);
         }

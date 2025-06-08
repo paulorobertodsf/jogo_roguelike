@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class CardController : MonoBehaviour
@@ -28,13 +29,22 @@ public class CardController : MonoBehaviour
         return cards;
     }
 
+    public static GameObject InitializeCard(GameObject cardObject, CardModel cardModel)
+    {
+        TextMeshProUGUI description = cardObject.GetComponentInChildren<TextMeshProUGUI>();
+        CardView cardView = cardObject.GetComponent<CardView>();
+        cardView.Initialize(cardModel);
+        description.text = cardModel.description;
+        return cardObject;
+    }
+
     public static void applyCard(CardModel card)
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        PlayerController playerController = player.GetComponent<PlayerController>();
+        PlayerView playerView = player.GetComponent<PlayerView>();
         Debug.Log(card.modifier);
-        Debug.Log(playerController);
-        playerController.currentHealth += card.modifier.health;
-        playerController.speed += card.modifier.speed;
+        Debug.Log(playerView);
+        playerView.player.currentHealth += card.modifier.health;
+        playerView.player.speed += card.modifier.speed;
     }
 }

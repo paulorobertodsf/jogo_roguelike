@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 193396978}
   m_Layer: 0
   m_Name: Fire Point
-  m_TagString: Untagged
+  m_TagString: FirePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1138,7 +1138,7 @@ GameObject:
   - component: {fileID: 973758731}
   m_Layer: 0
   m_Name: Bullets
-  m_TagString: Untagged
+  m_TagString: BulletContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1263,6 +1263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8666532130471539886, guid: 2527a24c833be5744a274b108ee5fd45, type: 3}
+  IdEnemy: teste
   minDistance: 3
   maxDistance: 5
   spawnInterval: 5
@@ -1292,12 +1293,12 @@ GameObject:
   - component: {fileID: 1306810028}
   - component: {fileID: 1306810027}
   - component: {fileID: 1306810030}
-  - component: {fileID: 1306810029}
   - component: {fileID: 1306810032}
   - component: {fileID: 1306810031}
   - component: {fileID: 1306810033}
   - component: {fileID: 1306810034}
   - component: {fileID: 1306810035}
+  - component: {fileID: 1306810036}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1378,25 +1379,6 @@ Transform:
   - {fileID: 479382081}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1306810029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306810026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c9209c4d838b35478b23db78e343f2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7480979065465791328, guid: e854d9f1f79d7094b960061097909a0a, type: 3}
-  transformBulletContainer: {fileID: 973758731}
-  transformFirePoint: {fileID: 193396978}
-  maxHealth: 100
-  currentHealth: 0
-  speed: 5
-  fireCooldown: 0.5
 --- !u!114 &1306810030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1589,6 +1571,23 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1306810036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306810026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df2287cea129f040822b5869ea8210d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player:
+    maxHealth: 100
+    currentHealth: 100
+    damage: 5
+    speed: 5
 --- !u!1 &1809993448
 GameObject:
   m_ObjectHideFlags: 0
@@ -26782,9 +26781,9 @@ GameObject:
   - component: {fileID: 2003251691}
   - component: {fileID: 2003251692}
   - component: {fileID: 2003251693}
-  - component: {fileID: 2003251696}
   - component: {fileID: 2003251695}
   - component: {fileID: 2003251694}
+  - component: {fileID: 2003251696}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -26891,7 +26890,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003251690}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -26964,15 +26963,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003251690}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a549e1c6b3768b64a81f2ed1b1a73c11, type: 3}
+  m_Script: {fileID: 11500000, guid: 76fe34073c1816d49b1311cdc184b101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformTarget: {fileID: 0}
-  speed: 3
-  damage: 5
-  health: 10
+  enemy:
+    id: 
+    name: 
+    health: 0
+    damage: 0
+    speed: 0
 --- !u!1001 &1667345741019527675
 PrefabInstance:
   m_ObjectHideFlags: 0

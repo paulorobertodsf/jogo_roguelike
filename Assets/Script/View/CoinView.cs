@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
-public class CoinController : MonoBehaviour
+public class CoinView : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {

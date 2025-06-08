@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
             currentPosition += spacing;
 
             GameObject cardInstance = Instantiate(cardPrefab, cardPosition, Quaternion.identity, menuUpgradeInstance.transform);
-            InitializeCard(cardInstance, cardModel);
+            CardController.InitializeCard(cardInstance, cardModel);
         }
     }
 
@@ -46,12 +46,5 @@ public class GameController : MonoBehaviour
         ResumeGame();
     }
 
-    private static GameObject InitializeCard(GameObject cardObject, CardModel cardModel)
-    {
-        TextMeshProUGUI description = cardObject.GetComponentInChildren<TextMeshProUGUI>();
-        CardView cardView = cardObject.GetComponent<CardView>();
-        cardView.Initialize(cardModel);
-        description.text = cardModel.description;
-        return cardObject;
-    }
+
 }

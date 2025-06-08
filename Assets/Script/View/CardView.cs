@@ -3,15 +3,15 @@ using UnityEngine.EventSystems;
 
 public class CardView : MonoBehaviour, IPointerClickHandler
 {
-    public CardModel cardModel;
+    public CardModel card;
 
     public void Initialize(CardModel cardModel)
     {
-        this.cardModel = cardModel;
+        card = cardModel;
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        CardController.applyCard(cardModel);
+        CardController.applyCard(card);
         GameController.DestroyMenuUpgrade();
     }
 }

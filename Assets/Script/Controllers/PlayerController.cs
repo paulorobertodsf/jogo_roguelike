@@ -4,88 +4,44 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    private Vector2 movement;
-    private Rigidbody2D rigidbodyPlayer;
+    public static float fireCooldown;
+    public static float fireInterval;
+    public static float fireForce = 10f;
 
-    public GameObject bulletPrefab;
-    public Transform transformBulletContainer;
-    public Transform transformFirePoint;
-    private HealthBarController healthBar;
+    public static float damageCooldown = 0.1f;
+    public static float nextDamageTime = 0f;
 
-    public int maxHealth;
-    public int currentHealth;
-
-    public float speed;
-
-    public float fireCooldown;
-    private float fireInterval;
-    private float fireForce = 10f;
-
-    private float damageCooldown = 0.1f;
-    private float nextDamageTime = 0f;
-
-    private void Awake()
+    public static void TakeDamage(int damage)
     {
-        rigidbodyPlayer = GetComponent<Rigidbody2D>();
-        healthBar = GetComponentInChildren<HealthBarController>();
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        PlayerView playerView = playerObject.GetComponent<PlayerView>();
+
+        playerView.player.currentHealth -= damage;
+        if (playerView.player.currentHealth <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //healthBar.UpdateHealthBar(playerView.player.maxHealth, playerView.player.currentHealth);
     }
-
-    private void Start()
-    {
-
-        currentHealth = maxHealth;
-        healthBar.UpdateHealthBar(maxHealth, currentHealth);
-    }
-
-    private void FixedUpdate()
-    {
-        rigidbodyPlayer.linearVelocity = movement * speed;
-    }
-
-    private void OnMove(InputValue inputValue)
-    {
-        movement = inputValue.Get<Vector2>();
-    }
-    private void OnFire()
-    {
-        FireBullet();
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy") && Time.time >= nextDamageTime)
-        {
-            EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
-            TakeDamage(enemyController.damage);
-
-            nextDamageTime = Time.time + damageCooldown;
-        }
-    }
-
-    private void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        if (currentHealth <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        healthBar.UpdateHealthBar(maxHealth, currentHealth);
-    }
-
-    private void FireBullet()
+    public static void FireBullet()
     {
         if (Time.time < fireInterval) return;
-        GameObject bullet = Instantiate(bulletPrefab, transformFirePoint.position, Quaternion.identity, transformBulletContainer);
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        PlayerView playerView = playerObject.GetComponent<PlayerView>();
+
+        GameObject firePoint = GameObject.FindGameObjectWithTag("FirePoint");
+        Transform firePointTransform = firePoint.transform;
+
+        GameObject bulletContainer = GameObject.FindGameObjectWithTag("BulletContainer");
+        Transform bulletContainerTransform = firePoint.transform;
+
+        GameObject bulletPrefab = Resources.Load<GameObject>(GameController.pathPrefab + "/Bullet");
+
+        GameObject bullet = Instantiate(bulletPrefab, firePointTransform.position, Quaternion.identity, bulletContainerTransform);
         Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mousePos.z = 0f;
-        Vector2 direction = (mousePos - transformFirePoint.position).normalized;
+        Vector2 direction = (mousePos - firePointTransform.position).normalized;
 
-        if (rbBullet != null)
-        {
-            /*
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            Vector2 direction = (mousePos - transformFirePoint.position).normalized;
-            rbBullet.linearVelocity = direction.normalized * fireForce;*/
-            rbBullet.linearVelocity = direction * fireForce;
-        }
+        rbBullet.linearVelocity = direction * fireForce;
 
         BulletController bulletController = bullet.GetComponent<BulletController>();
         if (bulletController != null)
@@ -94,7 +50,7 @@ public class PlayerController : MonoBehaviour
             bulletController.speed = fireForce;
         }
         
-        Collider2D colliderPlayer = GetComponent<Collider2D>();
+        Collider2D colliderPlayer = playerObject.GetComponent<Collider2D>();
         Collider2D colliderBullet = bullet.GetComponent<Collider2D>();
 
         Physics2D.IgnoreCollision(colliderBullet, colliderPlayer);
