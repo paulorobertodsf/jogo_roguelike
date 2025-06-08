@@ -8,6 +8,7 @@ TagManager:
   - MenuUpgrade
   - FirePoint
   - BulletContainer
+  - HealthBar
   layers:
   - Default
   - TransparentFX

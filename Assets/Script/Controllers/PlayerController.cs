@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
         playerView.player.currentHealth -= damage;
         if (playerView.player.currentHealth <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //healthBar.UpdateHealthBar(playerView.player.maxHealth, playerView.player.currentHealth);
+        HealthBarController.UpdateHealthBar(playerView.player.maxHealth, playerView.player.currentHealth);
     }
     public static void FireBullet()
     {

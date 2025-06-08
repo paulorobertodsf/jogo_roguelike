@@ -20,7 +20,7 @@ public class PlayerView : MonoBehaviour
     {
         // TODO: colocar pra pegar as infos de um json
         player.currentHealth = player.maxHealth;
-        healthBar.UpdateHealthBar(player.maxHealth, player.currentHealth);
+        HealthBarController.UpdateHealthBar(player.maxHealth, player.currentHealth);
     }
 
     private void FixedUpdate()
