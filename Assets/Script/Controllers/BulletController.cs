@@ -25,8 +25,7 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject);
 
         if (!collision.gameObject.CompareTag("Enemy")) return;
-        EnemyView enemyView = collision.gameObject.GetComponent<EnemyView>();
-
-        enemyView.enemy.health -= damage;
+        EnemyCombat enemyStats = collision.gameObject.GetComponent<EnemyCombat>();
+        enemyStats.TakeDamage(damage);
     }
 }
