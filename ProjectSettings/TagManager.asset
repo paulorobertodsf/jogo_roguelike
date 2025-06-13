@@ -7,7 +7,6 @@ TagManager:
   - Enemy
   - MenuUpgrade
   - FirePoint
-  - BulletContainer
   - HealthBar
   layers:
   - Default

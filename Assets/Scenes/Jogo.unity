@@ -1132,37 +1132,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7454109384923850937, guid: 551678ca1e89c0e48b9785b1171dc342, type: 3}
   m_PrefabInstance: {fileID: 1667345741019527675}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &973758730
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 973758731}
-  m_Layer: 0
-  m_Name: Bullets
-  m_TagString: BulletContainer
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &973758731
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973758730}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2125, y: -10.8189, z: 0}
-  m_LocalScale: {x: 16, y: 16, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1264127699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,10 +1598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9a804e0294f924da5cbdc54db173aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7480979065465791328, guid: e854d9f1f79d7094b960061097909a0a, type: 3}
   firePoint: {fileID: 193396978}
-  fireCooldown: 0.3
-  bulletForce: 10
+  startingWeapon: {fileID: 11400000, guid: c19e21529a2afb045bd84fd3490f3814, type: 2}
 --- !u!1 &1809993448
 GameObject:
   m_ObjectHideFlags: 0
@@ -26932,6 +26899,5 @@ SceneRoots:
   - {fileID: 2003251691}
   - {fileID: 712934710}
   - {fileID: 1269570326}
-  - {fileID: 973758731}
   - {fileID: 1957664700}
   - {fileID: 1860821373}

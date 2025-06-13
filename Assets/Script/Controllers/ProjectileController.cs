@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class ProjectileController : MonoBehaviour
 {
     public float lifeTime;
     public int damage;
