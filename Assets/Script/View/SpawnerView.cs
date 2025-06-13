@@ -27,15 +27,5 @@ public class SpawnerView : MonoBehaviour
         Vector2 spawnPosition = (Vector2)transform.position + direction * distance;
 
         GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, transform);
-        EnemyModel enemyModel = new EnemyModel();
-        // TODO: apagar depois e colocar pra pegar do json
-            enemyModel.id = IdEnemy;
-            enemyModel.name = "Teste";
-            enemyModel.health = 15;
-            enemyModel.damage = 5;
-            enemyModel.speed = 5;
-        //------------------------------------------------
-        EnemyView enemyView = enemy.GetComponent<EnemyView>();
-        enemyView.Initialize(enemyModel);
     }
 }

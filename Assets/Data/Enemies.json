@@ -5,7 +5,7 @@
             "name": "teste",
             "health": 15,
             "damage": 5,
-            "speed": 5
+            "moveSpeed": 5
         }
     ]
 }
