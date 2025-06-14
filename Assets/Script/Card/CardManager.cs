@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CardManager
 {
-    private static string jsonFileName = "Cards.json";
+    private static string jsonCards = "Cards.json";
 
     public static List<CardModel> ShuffleCards(List<CardModel> cards)
     {
@@ -15,7 +15,7 @@ public class CardManager
 
     public static List<CardModel> LoadCards()
     {
-        string path = Path.Combine(GameController.pathData, jsonFileName);
+        string path = Path.Combine(GameController.pathData, jsonCards);
         string json = File.ReadAllText(path);
         CardsWrapper wrapper = JsonUtility.FromJson<CardsWrapper>(json);
         return wrapper.cards;

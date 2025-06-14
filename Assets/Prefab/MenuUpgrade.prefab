@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3671795163219095783}
   - component: {fileID: -5856374313312397135}
   m_Layer: 5
-  m_Name: Menu Upgrade
+  m_Name: MenuUpgrade
   m_TagString: MenuUpgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

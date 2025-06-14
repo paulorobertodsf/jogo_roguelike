@@ -1,11 +1,18 @@
 {
     "enemies": [
         {
-            "id": "teste",
-            "name": "teste",
+            "id": "skeleton",
+            "name": "skeleton",
+            "health": 10,
+            "damage": 5,
+            "moveSpeed": 6
+        },
+        {
+            "id": "zombie",
+            "name": "zombie",
             "health": 15,
             "damage": 5,
-            "moveSpeed": 5
+            "moveSpeed": 4
         }
     ]
 }

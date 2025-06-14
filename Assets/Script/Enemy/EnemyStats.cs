@@ -11,4 +11,12 @@ public class EnemyStats : MonoBehaviour
     {
         currentHealth = maxHealth;
     }
+
+    public void Initialize(EnemyModel enemy)
+    {
+        maxHealth = enemy.health;
+        currentHealth = enemy.health;
+        damage = enemy.damage;
+        moveSpeed = enemy.moveSpeed;
+    }
 }
