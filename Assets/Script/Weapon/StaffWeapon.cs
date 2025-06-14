@@ -6,7 +6,6 @@ public class StaffWeapon : WeaponBase
 {
     public GameObject projectilePrefab;
     public float projectileSpeed = 10f;
-    public float cooldown = 0.3f;
     [System.NonSerialized]
     public float nextFireTime = 0f;
 

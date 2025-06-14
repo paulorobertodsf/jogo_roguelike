@@ -16,7 +16,6 @@ public class PlayerCombat : MonoBehaviour
 
     public void Fire()
     {
-        Debug.Log("FIRE!");
         currentWeapon.Use(firePoint, gameObject);
     }
 
